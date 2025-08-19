@@ -1,0 +1,27 @@
+---
+ - hosts: all
+   become: true
+   tasks:
+
+
+     - name: Create DB volume
+       community.docker.docker_volume:
+        name: db
+       become: true
+
+     - name: pulling docker image from docker hub
+       community.docker.docker_image:
+          name: modoma21/madss_system:latest
+          source: pull
+       become: true
+
+     - name: run container
+       community.docker.docker_container:
+          name: nextn-app
+          image: modoma21/madss_system:latest
+          ports:
+            - "3000:3000"
+          volumes:
+            - madss_data:/app/data   # persistent volume mount
+          restart_policy: always
+
