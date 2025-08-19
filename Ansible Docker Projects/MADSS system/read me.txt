@@ -1,0 +1,7 @@
+This file contains data about my graduation project web application. Here in this file you will find the files used to deploy the web app locally.
+  steps:
+    1- I made a Docker file that uses NodeJS in the Alpine image to deploy the webapp.
+    2- I built the Docker file and ran it on the machine on port 3000.
+    3- I uploaded the Docker image to my Docker Hub so that I can deploy that image on any machine I am connected to.
+    4- I made an Ansible file to deploy the webapp on the target virtual machine I have.
+    5- I made an Ansible file to pull the image from my Docker Hub, then deploy it on the target machine.
